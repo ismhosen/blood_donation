@@ -5002,8 +5002,8 @@ footer p {
     margin-top: 28px;
 }
 .inbox-middle{
-    overflow: auto;
-    height: 716px;
+    overflow-y: scroll;
+    height: 551px;
     border-top:3px solid #f4f4f4;
     border-right: 2px solid #f4f4f4;
     border-bottom: 2px solid #f4f4f4;
@@ -5013,12 +5013,16 @@ footer p {
     position: fixed;
 }
 .inbox-middle h2{
-    padding: 54% 20%;
+    /* padding: 54% 20%; */
     color: #f4f4f4;
     
 }
 .inbox-middle .send-messege{
     padding: 0 15% 0 15%;
+}
+.send-messege{
+  position: absolute;
+  bottom: 15px;
 }
 .inbox-middle .send-messege form input{
     margin-left: 20px;
@@ -5027,8 +5031,7 @@ footer p {
     width: 250px;
     float: left;
     background: #f4f4f4;
-    bottom: o;
-    
+    bottom: 0;
 }
 .inbox-middle .send-messege form input:nth-child(2){
     width: 70px;

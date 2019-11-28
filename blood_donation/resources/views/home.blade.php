@@ -72,14 +72,14 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="logo" href="Blood-Donation.html"><img alt="" src="images/logo.png"></a>
+                                <a class="logo" href="{{ route('home') }}"><img alt="" src="images/logo.png"></a>
                             </div>
     
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a class="" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -141,7 +141,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="logo" href="Blood-Donation.html"><img alt="" src="images/logo.png"></a>
+                                <a class="logo" href="{{ route('home') }}"><img alt="" src="images/logo.png"></a>
                             </div>
     
                             <div class="navbar-collapse collapse">
@@ -338,7 +338,7 @@
                                                 <p>Phone : {{ $user->phone_no }}</p>
                                                 <p>Address : {{ $user->address }}</p>
                                                 <p>Last Given : {{ $user->last_blood_donation }}</p>
-                                                <button><a href="inbox.html">Send Messege</a></button>                
+                                                <button><a href="{{ route('getUserMessage',$user->id) }}">Send Messege</a></button>                
                                             </div>
                                         </div>
                                     </div>

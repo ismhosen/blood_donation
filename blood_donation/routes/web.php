@@ -22,6 +22,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/editprofile', 'Usercontroller@editprofile');
     Route::post('/addLastBloodDonation', 'Usercontroller@addLastBloodDonation');
     Route::post('/editPassword', 'Usercontroller@editPassword');
+    Route::get('/messenger', 'Usercontroller@messenger')->name('messenger');
+    Route::get('/getUserMessage/{id}', 'Usercontroller@getUserMessage')->name('getUserMessage');
+    Route::get('/message/{id}', 'Usercontroller@getMessage')->name('getMessage');
+    Route::POST('/sendMessage', 'Usercontroller@sendMessage');
 });
 
 Auth::routes();

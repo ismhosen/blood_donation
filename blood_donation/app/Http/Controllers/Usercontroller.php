@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Messenger;
 use Auth;
+use DB;
 use Session;
 class Usercontroller extends Controller
 {
@@ -76,5 +78,70 @@ class Usercontroller extends Controller
             Session::flash('msg', 'Password Doesn\'t Match');
             return redirect()->back();
         }
+    }
+    public function messenger()
+    {
+        // select all users except logged in user
+        $users = User::where('id', '!=', Auth::id())->get();
+        //  count how many message are unread from the selected user
+        //  $users = DB::select("select users.id, users.name, users.image, users.email, count(is_read) as unread 
+        //  from users LEFT  JOIN  messengers ON users.id = messengers.from and is_read = 0 and messengers.to = " . Auth::id() . "
+        //  where users.id != " . Auth::id() . " 
+        //  group by users.id, users.name, users.image, users.email");
+        //  return view('messenger', ['users' => $users]);
+        $my_id=Auth::id();
+
+        // $users = Messenger::where(function ($query) use ($my_id) {
+        //     $query->where('from', $my_id);
+        // })->oRwhere(function ($query) use ($my_id) {
+        //     $query->where('to', $my_id);
+        // })->distinct()->get();
+        // $contactListsWithDuplicate=Messenger::where('from', $my_id)->orWhere('to',$my_id)->orderBy('id', 'DESC')->distinct('')->get();
+        // // dd($contactListsWithDuplicate);
+        // $conversionNum[]=-1;
+        // $collection=collect($conversionNum);
+        // $contactLists=[];
+        // // dd($collection->contains($fromUser));
+        // foreach ($contactListsWithDuplicate as $item) {
+        //     if (!$collection->contains($item->conversion_number)) {
+        //         $contactLists[]=$item;
+        //         $conversionNum[]=$item->conversion_number;
+        //         $collection=collect($conversionNum);
+        //     }
+        // }
+        return view('messenger',['users'=>$users]);
+    }
+    public function getUserMessage($to_id)
+    {
+        //return $to_id;
+        return view('messenger');
+    }
+    public function getMessage($user_id)
+    {
+        $my_id=Auth::id();
+        // Get all message from selected user
+        $messages = Messenger::where(function ($query) use ($user_id, $my_id) {
+            $query->where('from', $my_id)->where('to', $user_id);
+        })->oRwhere(function ($query) use ($user_id, $my_id) {
+            $query->where('from', $user_id)->where('to', $my_id);
+        })->get();
+
+        return view('messages.index', ['messages' => $messages]);
+         
+    }
+    public function sendMessage(Request $request)
+    {
+        // dd($request->all());
+        $from = Auth::id();
+        $to = $request->receiver_id;
+        $message = $request->message;
+        // dd($message) ;
+        $data = new Messenger();
+        $data->from = $from;
+        $data->to = $to;
+        $data->message = $message;
+        $data->is_read = 0; // message will be unread when sending message
+        $data->save();
+        // return redirect()->back();
     }
 }

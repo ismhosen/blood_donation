@@ -62,7 +62,7 @@
             <div class="signup">
                 <div class="login-box">
                     <h6>
-                        <i class="fa fa-arrow-right"></i> <a href="Blood-Donation.html">Back to Home</a> <i class="fa fa-arrow-left"></i>
+                        <i class="fa fa-arrow-right"></i> <a href="{{ route('home') }}">Back to Home</a> <i class="fa fa-arrow-left"></i>
                     </h6><br>
                     <div class="container">
                     <div class="form">
