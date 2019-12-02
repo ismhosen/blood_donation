@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Feedback;
 use Auth;
 
 
@@ -49,5 +50,13 @@ class HomeController extends Controller
         // $users=User::where('blood_group','like','%'.$str.'%')->get();
         
         return view('ajaxSearchResults',['users'=>$users]);
+    }
+    public function submitfeedback(Request $req)
+    {
+        $feedback=new Feedback();
+        $feedback->email=$req->email;
+        $feedback->feedback=$req->feedback;
+        $feedback->save();
+        return redirect()->back();
     }
 }

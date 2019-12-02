@@ -32,71 +32,141 @@
 
         <!--  HEADER -->
         @if (Auth::check())
-            <header class="main-header clearfix">
+            @if (Auth::user()->type=="donor" || Auth::user()->type=="volunteer")
+                <header class="main-header clearfix">
 
-                <div class="top-bar clearfix">
-    
-                    <div class="container">
-    
-                        <div class="row">
-    
-                            <div class="col-md-8 col-sm-12">
-    
-                                <p>Welcome to blood donation center.</p>
-    
-                            </div>
-    
-                            <div class="col-md-4col-sm-12">
-                                <div class="top-bar-social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                </div>   
-                            </div> 
-                        </div>
-    
-                    </div> <!--  end .container -->
-    
-                </div> <!--  end .top-bar  -->
-    
-                <section class="header-wrapper navgiation-wrapper">
-    
-                    <div class="navbar navbar-default">			
+                    <div class="top-bar clearfix">
+        
                         <div class="container">
-    
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="logo" href="{{ route('home') }}"><img alt="" src="images/logo.png"></a>
+        
+                            <div class="row">
+        
+                                <div class="col-md-8 col-sm-12">
+        
+                                    <p>Welcome to blood donation center.</p>
+        
+                                </div>
+        
+                                <div class="col-md-4col-sm-12">
+                                    <div class="top-bar-social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-youtube"></i></a>
+                                    </div>   
+                                </div> 
                             </div>
-    
-                            <div class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a class="" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        <span>logout&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </ul>
+        
+                        </div> <!--  end .container -->
+        
+                    </div> <!--  end .top-bar  -->
+        
+                    <section class="header-wrapper navgiation-wrapper">
+        
+                        <div class="navbar navbar-default">			
+                            <div class="container">
+        
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="logo" href="{{ route('home') }}"><img alt="" src="images/logo.png"></a>
+                                </div>
+        
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            <span>logout&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-    
-                </section>
-    
-    
-            </header>            
+        
+                    </section>
+        
+        
+                </header>  
+            @else
+                <header class="main-header clearfix">
+
+                    <div class="top-bar clearfix">
+        
+                        <div class="container">
+        
+                            <div class="row">
+        
+                                <div class="col-md-8 col-sm-12">
+        
+                                    <p>Welcome to blood donation center.</p>
+        
+                                </div>
+        
+                                <div class="col-md-4col-sm-12">
+                                    <div class="top-bar-social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-youtube"></i></a>
+                                    </div>   
+                                </div> 
+                            </div>
+        
+                        </div> <!--  end .container -->
+        
+                    </div> <!--  end .top-bar  -->
+        
+                    <section class="header-wrapper navgiation-wrapper">
+        
+                        <div class="navbar navbar-default">			
+                            <div class="container">
+        
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="logo" href="{{ route('home') }}"><img alt="" src="images/logo.png"></a>
+                                </div>
+        
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('users') }}">Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('feedbacks') }}">Feedbacks</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            <span>logout&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </section>
+        
+        
+                </header> 
+            @endif
+                      
         @else
         <header class="main-header clearfix">
 
@@ -932,12 +1002,13 @@
                                     <div class="footer-widget-header clearfix">
                                         <h3>Give your Feedback</h3>
                                     </div>
-                                    <input type="text" placeholder="        Write your experience...">
-                                    <div class="footer-subscription">
-                                        <p>
-                                            <button class="inside-btn">Submit</button>
-                                        </p>
-                                    </div>
+                                    <form action="/submitfeedback" method="post">
+                                        @csrf
+                                        <input type="email" name="email" id="" placeholder="Enter Your email">
+                                        <input type="text" placeholder="Write your experience..." name="feedback">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </form>
+                                    
                                 </div>
                             </div>
 
