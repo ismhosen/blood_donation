@@ -23,9 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::where('id', '!=', Auth::id())->get();
+        $users = User::where('id', '!=', Auth::id())->where('type','donor')->get();
+        $volunteers = User::where('id', '!=', Auth::id())->where('type','volunteer')->get();
         // dd($users);
-        return view('home',['users'=>$users]);
+        return view('home',['users'=>$users, 'volunteers'=>$volunteers]);
     }
     public function signup()
     {

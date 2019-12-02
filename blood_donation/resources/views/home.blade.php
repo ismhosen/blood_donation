@@ -624,97 +624,29 @@
 
                 <div class="row">
 
+                    @foreach ($volunteers as $volunteer)
                     <div class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 
-                        <div class="team-layout-1">       
-
-                            <figure class="team-member">
-                                <a href="#" title="ALEXANDER GARY">
-                                    <img src="images/team_9.jpg" alt="ALEXANDER GARY"/>
-                                </a>
-
-                            </figure> <!-- end. team-member  -->
-
-                            <article class="team-info">
-                                <h3>Amanullah Aman</h3>                                   
-                                <h4>Co-Founder</h4>
-                            </article>
-
-                            <div class="team-content">
-
-                                <div class="team-social-share text-center clearfix">
-                                    <a class="fa fa-facebook rectangle" href="https://www.facebook.com/auarony" title="Facebook"></a>
-                                    <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                                    <a class="fa fa-google-plus rectangle" href="#" title="Google Plus"></a>
-                                    <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-                                </div> <!-- end .author-social-box  -->
-
-                            </div>                             
-
-                        </div> <!--  end team-layout-1 -->
-
-                    </div> <!--  end .col-md-4 col-sm-12  -->
-
-                    <div class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-
-                        <div class="team-layout-1">       
-
-                            <figure class="team-member">
-                                <a href="#" title="MELISSA MUNOZ">
-                                    <img src="images/team_6.jpg" alt="MELISSA MUNOZ" />
-                                </a>
-
-                            </figure> <!-- end. team-member  -->
-
-                            <article class="team-info">
-                                <h3>Farhan Nadim</h3>                                   
-                                <h4>Founder</h4>
-                            </article>
-
-                            <div class="team-content">
-
-                                <div class="team-social-share text-center clearfix">
-                                    <a class="fa fa-facebook rectangle" href="https://www.facebook.com/farhan.rabib" title="Facebook"></a>
-                                    <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                                    <a class="fa fa-google-plus rectangle" href="#" title="Google Plus"></a>
-                                    <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-                                </div> <!-- end .author-social-box  -->
-
-                            </div>                             
-
-                        </div> <!--  end team layout-1 -->
-
-                    </div> <!--  end .col-md-4 col-sm-12  -->
-
-                    <div class="col-lg-4 col-md-offset-0 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-
-                        <div class="team-layout-1">       
-
-                            <figure class="team-member">
-                                <a href="#" title="JOHN ABRAHAM">
-                                    <img src="images/team_7.jpg" alt="JOHN ABRAHAM" />
-                                </a>                               
-
-                            </figure> <!-- end. team-member  -->
-
-                            <article class="team-info">
-                                <h3>Shahadat Hossain</h3>                                   
-                                <h4>Co-Founder</h4>
-                            </article>
-                            <div class="team-content">
-
-                                <div class="team-social-share text-center clearfix">
-                                    <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                                    <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                                    <a class="fa fa-google-plus rectangle" href="#" title="Google Plus"></a>
-                                    <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-                                </div> <!-- end .author-social-box  -->
-
-                            </div>                             
-
-                        </div> <!--  end team-layout-1 -->
-
-                    </div> <!--  end .col-md-4 col-sm-12  -->  
+                            <div class="team-layout-1">       
+    
+                                <figure class="team-member">
+                                    <a href="#" title="ALEXANDER GARY">
+                                        <img src="/images/profile_pictures/{{ $volunteer->image }}" alt="ALEXANDER GARY"/>
+                                    </a>
+    
+                                </figure> <!-- end. team-member  -->
+    
+                                <article class="team-info">
+                                    <h3>{{ $volunteer->name }}</h3>                                   
+                                    <span>{{ $volunteer->blood_group }}</span><br>
+                                    <span>{{ $volunteer->address }}</span>
+                                </article>
+                              
+    
+                            </div> <!--  end team-layout-1 -->
+    
+                        </div>
+                    @endforeach
 
 
                 </div> <!-- end .row  --> 
@@ -722,76 +654,6 @@
             </div> <!-- end .container  -->
 
         </section> <!--  end .section-our-team --> 
-
-
-        <!--  APPOINTMENT SECTION -->
-
-        <section id="appointment" class="section-appointment">
-
-            <div class="container wow fadeInUp">
-
-                <div class="row">
-
-                    <div class="col-lg-6 col-md-6 hidden-sm hidden-xs"> 
-
-                        <figure class="appointment-img">
-                            <img src="images/appointment.jpg" alt="appointment image">
-                        </figure>
-                    </div> <!--  end col-lg-6  -->
-
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
-
-                        <div class="appointment-form-wrapper text-center clearfix">
-                            <h3 class="join-heading">Request Appointment</h3>
-                            <form class="appoinment-form"> 
-                                <div class="form-group col-md-6">
-                                    <input id="your_name" class="form-control" placeholder="Name" type="text">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input id="your_email" class="form-control" placeholder="Email" type="email">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input id="your_phone" class="form-control" placeholder="Phone" type="text">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <div class="select-style">                                    
-                                        <select class="form-control" name="your_center">
-                                            <option>Donation Center</option>
-                                            <option>Los Angles</option>
-                                            <option>California</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <input id="your_date" class="form-control" placeholder="Date" type="text">
-                                </div>
-
-
-                                <div class="form-group col-md-6">
-                                    <input id="your_time" class="form-control" placeholder="Time" type="text">
-                                </div>
-
-                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <textarea id="textarea_message" class="form-control" rows="4" placeholder="Your Message..."></textarea>
-                                </div>                                                          
-
-                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <button id="btn_submit" class="btn-submit" type="submit">Get Appointment</button>
-                                </div>
-
-                            </form>
-
-                        </div> <!-- end .appointment-form-wrapper  -->
-
-                    </div> <!--  end .col-lg-6 -->
-
-                </div> <!--  end .row  -->
-
-            </div> <!--  end .container -->
-
-        </section>  <!--  end .appointment-section  -->
 
         <!--  GALLERY CONTENT  -->
 

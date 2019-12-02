@@ -159,12 +159,23 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            <br>
+                            <h6>type:</h6>
+                            <select name="type" id="">
+                                <option value="donor">Donor</option>
+                                <option value="volunteer">Volunteer</option>
+                            </select>
+                            @error('description')
+                                <span class="error-message" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                             <br><br>
                             <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                         </form>
-                        <h6><a href="login.html">Already have an account? login..</a></h6>
+                        <h6><a href="{{ route('signin') }}">Already have an account? login..</a></h6>
                         
                     </div>
                     </div>

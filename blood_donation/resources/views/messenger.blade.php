@@ -95,8 +95,9 @@
         }
 
         .media-left img {
-            width: 64px;
-            border-radius: 64px;
+            width: 100% !important;
+
+            /* border-radius: 64px; */
         }
 
         .media-body p {
@@ -246,12 +247,12 @@
                                         <span class="pending">1</span>
                                         <div class="media">
                                             <div class="media-left">
-                                                <img src="/images/profile_pictures/{{ $user->image }}" alt="" class="media-object">
+                                                <img src="/images/profile_pictures/{{ $user->image }}" alt="hello">
                                             </div>
                                             <div class="media-body">
-                                                <p class="name">{{$user->name}}</p>
-                                                <p class="email">{{$user->blood_group}}</p>
-                                                <p class="email">{{$user->address}}</p>
+                                                <span class="name"><strong>{{$user->name}}</strong></span><br>
+                                                <span class="email">{{$user->blood_group}}</span><br>
+                                                <span class="email">{{$user->address}}</span><br><br>
                                             </div>
                                         </div>
                                     </li>
