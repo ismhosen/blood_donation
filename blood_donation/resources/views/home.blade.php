@@ -365,58 +365,94 @@
                 
                 <!-- Tab links -->
                         <div class="tab text-center">
-                            <button class="tablinks" onclick="openCity(event, 'London')">Recent Donars</button>
-                            <button class="tablinks" onclick="openCity(event, 'Paris')">Can Donate</button>
+                            <button class="tablinks" onclick="openCity(event, 'recent')">Recent Donars</button>
+                            <button class="tablinks" onclick="openCity(event, 'available')">Can Donate</button>
                         </div>
 
                         <!-- Tab content -->
-                        <div id="London" class="tabcontent text-center">
-                        <div class="colorful-tab-container">  
-                    <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
-                    <ul>
-                        <li>
-                            <div class="team-member">
-                            <img src="images/1.jpg" alt="">
-                            <div class="team-member-overlay">
-                                <div class="team-member-info text-center">
-                                    <h6>Kevin Greer</h6>
-                                    <p>A+ Blood Donar</p>
-                                    <p>Phone : 01******94</p>
-                                    <p>Address : 2/G,ShiyalBari,Mirpur-02,Dhaka-1216</p>
-                                    <button><a href="inbox.html">Send Messege</a></button>
+                        <div id="recent" class="tabcontent text-center">
+                            <div class="colorful-tab-container">  
+                                <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
+                                    <ul>
+                                            {{-- {{$c=0;}} --}}
+                                            @foreach ($recent_donors as $user)
+                                                {{-- @foreach ($r_user as $user) --}}
+                                                <script>console.log('hello')</script>
+                                                <li>
+                                                        <div class="team-member">
+                                                            <img src="images/profile_pictures/{{ $user->image }}" alt="">
+                                                            <div class="team-member-overlay">
+                                                                <div class="team-member-info text-center">
+                                                                    <h6>{{ $user->name }}</h6>
+                                                                    <span style="font-size:13px">{{ $user->blood_group }} Blood Donar</span><br>
+                                                                    <span style="font-size:13px">Last Given : {{ $user->last_blood_donation }}</span><br>
+                                                                    <span style="font-size:13px">Phone : {{ $user->phone_no }}</span><br>
+                                                                    <span style="font-size:13px">Address : {{ $user->address }}</span><br>
+                                                                    <button><a href="{{ route('getUserMessage',$user->id) }}">Send Messege</a></button>                
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {{-- @endforeach --}}
+                                                
+                                                {{-- {{$c++;}} --}}
+                                            @endforeach
+                                        
+                                        
+                                    </ul>
                                 </div>
-                            </div>
-                            </div>
-                        </li>
-                    </ul>
-                    </div>
-                </div>         
+                            </div>         
                         </div>
 
-                        <div id="Paris" class="tabcontent">
+                        <div id="available" class="tabcontent" style="display:none">
                             <div class="colorful-tab-container">  
-                    <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
-                        <ul>
-                            @foreach ($users as $user)
-                                <li>
-                                    <div class="team-member">
-                                        <img src="images/profile_pictures/{{ $user->image }}" alt="">
-                                        <div class="team-member-overlay">
-                                            <div class="team-member-info text-center">
-                                                <h6>{{ $user->name }}</h6>
-                                                <p>{{ $user->blood_group }} Blood Donar</p>
-                                                <p>Phone : {{ $user->phone_no }}</p>
-                                                <p>Address : {{ $user->address }}</p>
-                                                <p>Last Given : {{ $user->last_blood_donation }}</p>
-                                                <button><a href="{{ route('getUserMessage',$user->id) }}">Send Messege</a></button>                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
+                                <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
+                                    <ul>
+                                        @foreach ($available_donors as $a_user)
+                                            <li>
+                                                <div class="team-member">
+                                                    <img src="images/profile_pictures/{{ $a_user->image }}" alt="">
+                                                    <div class="team-member-overlay">
+                                                        <div class="team-member-info text-center">
+                                                            <h6>{{ $a_user->name }}</h6>
+                                                            <span style="font-size:13px">{{ $a_user['blood_group'] }} Blood Donar</span><br>
+                                                            <span style="font-size:13px">Last Given : {{ $a_user->last_blood_donation }}</span><br>
+                                                            <span style="font-size:13px">Phone : {{ $a_user->phone_no }}</span><br>
+                                                            <span style="font-size:13px">Address : {{ $a_user->address }}</span><br>
+                                                            <button><a href="{{ route('getUserMessage',$a_user->id) }}">Send Messege</a></button>                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="donor" class="">
+                            <div class="colorful-tab-container">  
+                                <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
+                                    <ul>
+                                        @foreach ($users as $user)
+                                            <li>
+                                                <div class="team-member">
+                                                    <img src="images/profile_pictures/{{ $user->image }}" alt="">
+                                                    <div class="team-member-overlay">
+                                                        <div class="team-member-info text-center">
+                                                            <h6>{{ $user->name }}</h6>
+                                                            <span style="font-size:13px">{{ $user->blood_group }} Blood Donar</span><br>
+                                                            <span style="font-size:13px">Last Given : {{ $user->last_blood_donation }}</span><br>
+                                                            <span style="font-size:13px">Phone : {{ $user->phone_no }}</span><br>
+                                                            <span style="font-size:13px">Address : {{ $user->address }}</span><br>
+                                                            <button><a href="{{ route('getUserMessage',$user->id) }}">Send Messege</a></button>                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     
                     <div class="row text-center">
