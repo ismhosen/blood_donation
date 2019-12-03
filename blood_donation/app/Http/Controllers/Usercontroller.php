@@ -82,7 +82,7 @@ class Usercontroller extends Controller
     public function messenger()
     {
         // select all users except logged in user
-        $users = User::where('id', '!=', Auth::id())->get();
+        $users = User::where('id', '!=', Auth::id())->where('type','!=','Admin')->get();
         $my_id=Auth::id();
 
         return view('messenger',['users'=>$users]);
@@ -118,5 +118,20 @@ class Usercontroller extends Controller
         $data->is_read = 0; // message will be unread when sending message
         $data->save();
         // return redirect()->back();
+    }
+
+    public function AjaxSendMessage(Request $req)
+    {
+        $from=Auth::id();
+        $to=$req->idd;
+        $message=$req->message;
+        
+        $data = new Messenger();
+        $data->from = $from;
+        $data->to = $to;
+        $data->message = $message;
+        $data->is_read = 0; // message will be unread when sending message
+        $data->save();
+        return redirect()->back();
     }
 }

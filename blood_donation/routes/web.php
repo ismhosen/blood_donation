@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/getUserMessage/{id}', 'Usercontroller@getUserMessage')->name('getUserMessage');
     Route::get('/message/{id}', 'Usercontroller@getMessage')->name('getMessage');
     Route::POST('/sendMessage', 'Usercontroller@sendMessage');
+    Route::POST('/AjaxSendMessage', 'Usercontroller@AjaxSendMessage');
 
     Route::get('/admin/users', 'AdminController@users')->name('users');
     Route::get('/admin/feedbacks', 'AdminController@feedbacks')->name('feedbacks');
