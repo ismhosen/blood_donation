@@ -64,7 +64,6 @@
                     <h6>
                         <i class="fa fa-arrow-right"></i> <a href="{{ route('home') }}">Back to Home</a> <i class="fa fa-arrow-left"></i>
                     </h6><br>
-                    <div class="container">
                     <div class="form">
                        <form method="POST" action="{{route('login')}}">
                            @csrf
@@ -98,7 +97,6 @@
                         </form>
                         <h6><a href="signup.html">Havn't an account? Signup..</a></h6>
                         
-                    </div>
                     </div>
                     
                 </div>
