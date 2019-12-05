@@ -371,13 +371,15 @@
 
                         <!-- Tab content -->
                         <div id="recent" class="tabcontent text-center">
+                            <span class="fa fa-close pull-right" id="closeSearchDiv"></span>
+
                             <div class="colorful-tab-container">  
                                 <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
                                     <ul>
                                             {{-- {{$c=0;}} --}}
                                             @foreach ($recent_donors as $user)
                                                 {{-- @foreach ($r_user as $user) --}}
-                                                <script>console.log('hello')</script>
+                                                {{-- <script>console.log('hello')</script> --}}
                                                 <li>
                                                         <div class="team-member">
                                                             <img src="images/profile_pictures/{{ $user->image }}" alt="">
@@ -388,7 +390,7 @@
                                                                     <span style="font-size:13px">Last Given : {{ $user->last_blood_donation }}</span><br>
                                                                     <span style="font-size:13px">Phone : {{ $user->phone_no }}</span><br>
                                                                     <span style="font-size:13px">Address : {{ $user->address }}</span><br>
-                                                                    <button><a href="{{ route('getUserMessage',$user->id) }}">Send Messege</a></button>                
+                                                                    <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -419,7 +421,7 @@
                                                             <span style="font-size:13px">Last Given : {{ $a_user->last_blood_donation }}</span><br>
                                                             <span style="font-size:13px">Phone : {{ $a_user->phone_no }}</span><br>
                                                             <span style="font-size:13px">Address : {{ $a_user->address }}</span><br>
-                                                            <button><a href="{{ route('getUserMessage',$a_user->id) }}">Send Messege</a></button>                
+                                                            <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
                                                         </div>
                                                     </div>
                                                 </div>
@@ -429,6 +431,7 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
                         <div id="donor" class="">
                             <div class="colorful-tab-container">  
                                 <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
@@ -444,7 +447,7 @@
                                                             <span style="font-size:13px">Last Given : {{ $user->last_blood_donation }}</span><br>
                                                             <span style="font-size:13px">Phone : {{ $user->phone_no }}</span><br>
                                                             <span style="font-size:13px">Address : {{ $user->address }}</span><br>
-                                                            <button><a href="{{ route('getUserMessage',$user->id) }}">Send Messege</a></button>                
+                                                            <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
                                                         </div>
                                                     </div>
                                                 </div>
@@ -995,6 +998,33 @@
 
 
         <!-- START FOOTER  -->
+        <div class="modal fade" id="myMessageModal" role="dialog">
+            <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Send a Message to <span id="name"></span></h4>
+                    Blood Group <strong><span id="blood_group1"></span></strong>
+                </div>
+                <div class="modal-body">
+                    <form action="/AjaxSendMessage" method="post">
+                        @csrf
+                        {{-- <span id="id1" style="display:none"></span> --}}
+                        <input type="hidden" id="id1" name="idd">
+                        <input type="text" name="message" id="message">
+                        <button type="submit" class="btn btn-success">Send</button>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                
+            </div>
+        </div>
 
         <footer>            
 
@@ -1250,13 +1280,6 @@
                     data: {group: group, value: value},
                     // cache: true,
                     success: function(data){
-                        //    $("#resultarea").text(data);
-                        // alert('hello');
-                      //  console.log(data);
-                // $('#views').html('&nbsp;&nbsp;'+shoots.view);
-                    //alert('hello'+value);
-                        // $('#comments').html(data);
-                        // $('#clicked-shoot-id').val(shoots.id);
                         $('#search_div').css('display','block');
                         $('#search_div').html(data);
                         $("#closeSearchDiv").click(function(){
@@ -1265,6 +1288,37 @@
                     }
                 });
             }
+
+            function showdetails(user)
+            {
+                $('#name').html(user.name);
+                $('input[name=idd]').val(user.id);
+                // $('#id1').html(user.id);
+                $('#blood_group1').html('&nbsp &nbsp'+user.blood_group);
+                
+                // console.log(user);
+            }
+            // function sendMessage()
+            // {
+            //     var id=$('#id1').html();
+            //     var message=$('#message').val();
+            //     $.ajax({
+            //         type: "GET",
+            //         // url: '/searchBlood/'+shoots.id+'/'+shoots.category_id,
+            //         url: '/AjaxSendMessage/',
+            //         data: {receiver_id: id, message: message},
+            //         // cache: true,
+            //         success: function(data){
+
+            //             console.log('success');
+            //             // $('#search_div').css('display','block');
+            //             // $('#search_div').html(data);
+            //             // $("#closeSearchDiv").click(function(){
+            //             //     $('#search_div').css('display','none');
+            //             // });
+            //         }
+            //     });
+            // }
 
             
         </script>
