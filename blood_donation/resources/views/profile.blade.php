@@ -95,6 +95,7 @@
                                     <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="{{ route('users') }}">Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="{{ route('feedbacks') }}">Feedbacks</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                 @else
                                     <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
