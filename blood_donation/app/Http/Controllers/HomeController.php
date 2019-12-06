@@ -27,13 +27,11 @@ class HomeController extends Controller
         $today = date('Y-m-d', strtotime(str_replace('-', '/', date('Y-m-d'))));
         // $today=strtotime(date_create(date('Y-m-d')));
         // $last_given=date_create($user->last_blood_donation);
-        $users = User::where('id', '!=', Auth::id())->where('type','!=','Admin')->get();
+        $users = User::where('id', '!=', Auth::id())->get();
         $recent_donors = User::where('id', '!=', Auth::id())
-            ->where('type','!=','Admin')
             ->whereRaw("abs(DATEDIFF('$today', last_blood_donation)) <= 91")
             ->get();
         $available_donors = User::where('id', '!=', Auth::id())
-        ->where('type','!=','Admin')
         ->whereRaw("abs(DATEDIFF('$today', last_blood_donation)) >= 91")
         ->get();
         // dd($recent_donors);

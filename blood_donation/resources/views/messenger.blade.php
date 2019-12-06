@@ -216,9 +216,17 @@
     
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (Auth::user()->type=="Admin")
+                                        <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('users') }}">Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('feedbacks') }}">Feedbacks</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @else
+                                        <a href="{{ route('home') }}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('profile') }}">Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{{ route('messenger') }}">Messenger</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @endif
                                     <a class="" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

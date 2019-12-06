@@ -82,7 +82,7 @@ class Usercontroller extends Controller
     public function messenger()
     {
         // select all users except logged in user
-        $users = User::where('id', '!=', Auth::id())->where('type','!=','Admin')->get();
+        $users = User::where('id', '!=', Auth::id())->get();
         $my_id=Auth::id();
 
         return view('messenger',['users'=>$users]);

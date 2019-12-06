@@ -95,7 +95,7 @@
                             <input type="submit" name="Submit" placeholder="Submit">
                             
                         </form>
-                        <h6><a href="signup.html">Havn't an account? Signup..</a></h6>
+                        <h6><a href="{{ route('signup') }}">Havn't an account? Signup..</a></h6>
                         
                     </div>
                     

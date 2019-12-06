@@ -432,11 +432,11 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
                         <div id="donor" class="">
                             <div class="colorful-tab-container">  
                                 <div class="col-sm-12 col-md-12 colorful-tab-content active" id="clr-0">  
                                     <ul>
+                                    <hr>
                                         @foreach ($users as $user)
                                             <li>
                                                 <div class="team-member">
@@ -462,7 +462,7 @@
                     <div class="row text-center">
                         <div class="col-md-12">
                             <div class="btn">
-                                <button class="inside-btn"><a href="signup.html">Became a Donar</a></button>
+                                <button class="inside-btn"><a href="{{ route('signup') }}">Became a Donar</a></button>
                             </div>
                         </div>
                     </div>
