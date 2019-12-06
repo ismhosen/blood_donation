@@ -231,7 +231,7 @@
                                     <li class="drop"><a href="#volunteers">Volunteers</a>
                                             </li>
                                             <li><a href="#donar" title="404 Page">Donars</a></li> 
-                                            <li class="drop"><a href="#appointment">Appointment</a>
+                                           <!-- <li class="drop"><a href="#appointment">Appointment</a>-->
                                         
                                             
                                     </li>
@@ -276,7 +276,7 @@
                         Donating blood not only saves the life also save donor's lives.
                     </h3>
 
-                    <a href="#" class="btn btn-slider">GET APPOINTMENT</a>   
+                  <!--  <a href="#" class="btn btn-slider">GET APPOINTMENT</a>   -->
                 </div>
             </div>
 
@@ -289,7 +289,7 @@
                         Donating blood not only saves the life also save donor's lives.
                     </h3>
 
-                    <a href="#" class="btn btn-slider">GET APPOINTMENT</a>   
+                  <!--  <a href="#" class="btn btn-slider">GET APPOINTMENT</a>   -->
                 </div>
             </div>
             
@@ -302,7 +302,7 @@
                     Donating blood not only saves the life also save donor's lives.
                 </h3>
 
-                <a href="#" class="btn btn-slider">GET APPOINTMENT</a>   
+               <!-- <a href="#" class="btn btn-slider">GET APPOINTMENT</a>   -->
             </div>
             </div>
             </div>

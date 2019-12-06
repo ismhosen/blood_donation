@@ -72,7 +72,6 @@
                     <h6>
                         <i class="fa fa-arrow-right"></i> <a href="{{ route('home') }}">Back to Home</a> <i class="fa fa-arrow-left"></i>
                     </h6><br>
-                    <div class="container">
                     <div class="form">
                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
@@ -145,7 +144,7 @@
                             @enderror
                             <br>
                             <h6>Address:</h6>
-                            <input type="text" name="address" placeholder="please enter your address..." value="{{old('address')}}">
+                            <input type="text" name="address" placeholder="Please enter your district name" value="{{old('address')}}">
                             @error('address')
                                 <span class="error-message" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -180,7 +179,7 @@
                     </div>
                     </div>
                     
-                </div>
+                
                 
             </div>
             
