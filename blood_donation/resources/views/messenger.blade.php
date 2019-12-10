@@ -213,7 +213,6 @@
                                 </button>
                                 <a class="logo" href="{{ route('home') }}"><img alt="" src="images/logo.png"></a>
                             </div>
-    
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     @if (Auth::user()->type=="Admin")
