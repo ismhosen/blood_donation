@@ -29,10 +29,10 @@ class HomeController extends Controller
         // $last_given=date_create($user->last_blood_donation);
         $users = User::where('id', '!=', Auth::id())->get();
         $recent_donors = User::where('id', '!=', Auth::id())
-            ->whereRaw("abs(DATEDIFF('$today', last_blood_donation)) <= 91")
+            ->whereRaw("abs(DATEDIFF('$today', last_blood_donation)) < 90")
             ->get();
         $available_donors = User::where('id', '!=', Auth::id())
-        ->whereRaw("abs(DATEDIFF('$today', last_blood_donation)) >= 91")
+        ->whereRaw("abs(DATEDIFF('$today', last_blood_donation)) >= 90")
         ->get();
         // dd($recent_donors);
         $volunteers = User::where('id', '!=', Auth::id())->where('type','volunteer')->get();
