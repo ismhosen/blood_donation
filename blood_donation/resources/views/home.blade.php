@@ -161,15 +161,12 @@
                                 </div>
                             </div>
                         </div>
-        
                     </section>
-        
-        
                 </header> 
             @endif
                       
         @else
-        <header class="main-header clearfix">
+            <header class="main-header clearfix">
 
                 <div class="top-bar clearfix">
     
@@ -252,7 +249,6 @@
     
     
             </header>
-
         @endif
 
          <!-- end main-header  -->
@@ -317,7 +313,7 @@
                         <div class="search-blood text-center">
                             <h2 class="section-heading">Search Blood</h2>
                             <form>
-                                <select name="Blood Group" id="blood_group" onchange="searchBlood('blood_group',value)">
+                                <select name="Blood Group" id="blood_group" @if(Auth::check()) onchange="searchBlood('blood_group',value)" @endif>
                                     <option value="Choose Blood Group">Choose Blood Group</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
@@ -328,7 +324,7 @@
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
                                 </select>
-                                <select name="Area" id="area" onchange="searchBlood('area',value)">
+                                <select name="Area" id="area" @if(Auth::check()) onchange="searchBlood('area',value)" @endif>
                                     <option value="Choose Area">Choose Area</option>
                                     <option value="Dhaka">Dhaka</option>
                                     <option value="Chittagong">Chittagong</option>
@@ -382,8 +378,9 @@
                                                 {{-- @foreach ($r_user as $user) --}}
                                                 {{-- <script>console.log('hello')</script> --}}
                                                 <li>
-                                                        <div class="team-member">
-                                                            <img src="images/profile_pictures/{{ $user->image }}" alt="">
+                                                    <div class="team-member">
+                                                        <img src="images/profile_pictures/{{ $user->image }}" alt="">
+                                                        @if (Auth::check())
                                                             <div class="team-member-overlay">
                                                                 <div class="team-member-info text-center">
                                                                     <h6>{{ $user->name }}</h6>
@@ -394,8 +391,9 @@
                                                                     <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
+                                                        @endif
+                                                    </div>
+                                                </li>
                                                 {{-- @endforeach --}}
                                                 
                                                 {{-- {{$c++;}} --}}
@@ -415,16 +413,18 @@
                                             <li>
                                                 <div class="team-member">
                                                     <img src="images/profile_pictures/{{ $a_user->image }}" alt="">
-                                                    <div class="team-member-overlay">
-                                                        <div class="team-member-info text-center">
-                                                            <h6>{{ $a_user->name }}</h6>
-                                                            <span style="font-size:13px">{{ $a_user['blood_group'] }} Blood Donar</span><br>
-                                                            <span style="font-size:13px">Last Given : {{ $a_user->last_blood_donation }}</span><br>
-                                                            <span style="font-size:13px">Phone : {{ $a_user->phone_no }}</span><br>
-                                                            <span style="font-size:13px">Address : {{ $a_user->address }}</span><br>
-                                                            <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
+                                                    @if (Auth::check())
+                                                        <div class="team-member-overlay">
+                                                            <div class="team-member-info text-center">
+                                                                <h6>{{ $a_user->name }}</h6>
+                                                                <span style="font-size:13px">{{ $a_user['blood_group'] }} Blood Donar</span><br>
+                                                                <span style="font-size:13px">Last Given : {{ $a_user->last_blood_donation }}</span><br>
+                                                                <span style="font-size:13px">Phone : {{ $a_user->phone_no }}</span><br>
+                                                                <span style="font-size:13px">Address : {{ $a_user->address }}</span><br>
+                                                                <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    @endif
                                                 </div>
                                             </li>
                                         @endforeach
@@ -441,16 +441,19 @@
                                             <li>
                                                 <div class="team-member">
                                                     <img src="images/profile_pictures/{{ $user->image }}" alt="">
-                                                    <div class="team-member-overlay">
-                                                        <div class="team-member-info text-center">
-                                                            <h6>{{ $user->name }}</h6>
-                                                            <span style="font-size:13px">{{ $user->blood_group }} Blood Donar</span><br>
-                                                            <span style="font-size:13px">Last Given : {{ $user->last_blood_donation }}</span><br>
-                                                            <span style="font-size:13px">Phone : {{ $user->phone_no }}</span><br>
-                                                            <span style="font-size:13px">Address : {{ $user->address }}</span><br>
-                                                            <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
+                                                    @if (Auth::check())
+                                                        <div class="team-member-overlay">
+                                                            <div class="team-member-info text-center">
+                                                                <h6>{{ $user->name }}</h6>
+                                                                <span style="font-size:13px">{{ $user->blood_group }} Blood Donar</span><br>
+                                                                <span style="font-size:13px">Last Given : {{ $user->last_blood_donation }}</span><br>
+                                                                <span style="font-size:13px">Phone : {{ $user->phone_no }}</span><br>
+                                                                <span style="font-size:13px">Address : {{ $user->address }}</span><br>
+                                                                <button data-toggle="modal" data-target="#myMessageModal" onclick="showdetails({{$user}})" class="btn btn-success fa fa-wechat"></button>                
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    @endif
+                                                    
                                                 </div>
                                             </li>
                                         @endforeach
