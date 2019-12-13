@@ -603,7 +603,7 @@
                                         <p>Every year, on 14 June, countries around the world celebrate World Blood Donor Day. The event serves to thank voluntary.</p>
                                         <div class="event-latest-details">
                                             <a class="author" href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> California, USA</a>
+                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i>Dhaka,Bangladesh</a>
                                         </div>
                                     </div>
                                 </div> <!--  col-sm-7  -->
@@ -635,7 +635,7 @@
                                         <p>O Negative blood cells are called â€œuniversalâ€ meaning they can be transfused to almost any patient in need and blood cells are safest.</p>
                                         <div class="event-latest-details">
                                             <a class="author" href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> California, USA</a>
+                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> Dhaka,Bangladesh</a>
                                         </div>
                                     </div>
                                 </div> <!--  col-sm-7  -->
@@ -668,7 +668,7 @@
                                         <p>Many people has same blood group like you. so donate now and bring smiles in their face and encourage others for donate blood.</p>
                                         <div class="event-latest-details">
                                             <a class="author" href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> California, USA</a>
+                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> Dhaka,Bangladesh</a>
                                         </div>
                                     </div>
                                 </div> <!--  col-sm-7  -->
@@ -698,7 +698,7 @@
                                         <p>You're the real hero because you can gift a new life for patient.So donate your blood and enjoy a precious life. Don't fear, it's really easy.</p>
                                         <div class="event-latest-details">
                                             <a class="author" href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> 10.00am - 3.00pm</a>
-                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> California, USA</a>
+                                            <a class="comments" href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i> Dhaka,Bangladesh</a>
                                         </div>
                                     </div>
                                 </div> <!--  col-sm-7  -->
